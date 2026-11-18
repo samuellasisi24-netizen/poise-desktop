@@ -1,15 +1,15 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Pluely
-Comment=The Open Source Alternative to Cluely - Lightning-fast, privacy-first AI assistant for meetings and conversations
-Exec=pluely
-Icon=pluely
+Name=Poise
+Comment=Real-time interview coach
+Exec=poise
+Icon=poise
 Terminal=false
 Categories=Utility;AudioVideo;Audio;Development;Office;
-Keywords=ai;assistant;voice;speech;microphone;meeting;interview;cluely;stealth;privacy;
+Keywords=ai;assistant;voice;speech;microphone;meeting;interview;coach;
 StartupNotify=true
-StartupWMClass=pluely
+StartupWMClass=poise
 MimeType=audio/wav;audio/mp3;audio/ogg;
 
 # Permissions for microphone access
