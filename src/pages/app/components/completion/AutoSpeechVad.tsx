@@ -24,15 +24,18 @@ const AutoSpeechVADInternal = ({
   const [isTranscribing, setIsTranscribing] = useState(false);
   const { selectedSttProvider, allSttProviders } = useApp();
 
-  const audioConstraints: MediaTrackConstraints =
+  const getStream =
     microphoneDeviceId && microphoneDeviceId !== "default"
-      ? { deviceId: { exact: microphoneDeviceId } }
-      : {};
+      ? async () =>
+          navigator.mediaDevices.getUserMedia({
+            audio: { deviceId: { exact: microphoneDeviceId } },
+          })
+      : undefined;
 
   const vad = useMicVAD({
     userSpeakingThreshold: 0.6,
     startOnLoad: true,
-    additionalAudioConstraints: audioConstraints,
+    ...(getStream ? { getStream } : {}),
     onSpeechEnd: async (audio) => {
       try {
         // convert float32array to blob
